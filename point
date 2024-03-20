@@ -1,0 +1,15 @@
+import math
+
+class Point:
+ def __init__(self):
+ self.x=x
+ self.y=y
+
+ def move(self,x,y):
+ self.x=x
+ self.y=y
+
+ def reset(self):
+ self.move(0.0,0.0)
+
+ def cal_dist(self,other):
