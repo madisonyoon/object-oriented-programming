@@ -1,0 +1,34 @@
+class Base:
+     def __init__(self,a):
+         self.a=a
+         
+     def __str__(self):
+          return f'속성 a: {self.a}'
+
+     def welcome(self):
+          print('welcome method defined in Base.')
+
+class MyClass1:
+
+
+     def __init__(self,a,b):
+          super().__init__(a)
+          self.b=b
+         
+     def __str__(self):
+          return f'속성 a:{self.a}, 속성 b:{self.b}'
+
+     def hello(self):
+          print('hello method defined in MyClass1.')
+
+class MyClass2:
+
+     def __init__(self,a,c):
+          super().__str__(a)
+          self.c=c
+
+     def __str__(self):
+          return f'속성 c:{self.c}'
+     
+     def hi(self):
+          print('hi method defined in MyClass2')
