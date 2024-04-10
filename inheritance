@@ -1,34 +1,46 @@
 class Base:
-     def __init__(self,a):
-         self.a=a
-         
-     def __str__(self):
-          return f'속성 a: {self.a}'
+    def __init__(self, a):
+        self.a = a
 
-     def welcome(self):
-          print('welcome method defined in Base.')
+    def __str__(self):
+        return f'속성 a: {self.a}'
 
-class MyClass1:
+    def welcome(self):
+        print('welcome method defined in Base.')
 
 
-     def __init__(self,a,b):
-          super().__init__(a)
-          self.b=b
-         
-     def __str__(self):
-          return f'속성 a:{self.a}, 속성 b:{self.b}'
+class MyClass1(Base):
+    def __init__(self, a, b):
+        super().__init__(a)
+        self.b = b
 
-     def hello(self):
-          print('hello method defined in MyClass1.')
+    def __str__(self):
+        return f'{super().__str__()}, 속성 b: {self.b}'
 
-class MyClass2:
+    def hello(self):
+        print('hello method defined in MyClass1.')
 
-     def __init__(self,a,c):
-          super().__str__(a)
-          self.c=c
 
-     def __str__(self):
-          return f'속성 c:{self.c}'
-     
-     def hi(self):
-          print('hi method defined in MyClass2')
+class MyClass2(Base):
+    def __init__(self, a, c):
+        super().__init__(a)
+        self.c = c
+
+    def __str__(self):
+        return f'{super().__str__()}, 속성 c: {self.c}'
+
+    def hi(self):
+        print('hi method defined in MyClass2')
+
+
+if __name__ == '__main__':
+    obj1 = MyClass1('객체1', 'obj1')
+    obj2 = MyClass2('객체2', 'obj2')
+
+    print(obj1)
+    obj1.welcome()
+    obj1.hello()
+
+    print(obj2)
+    obj2.welcome()  # This will raise an AttributeError
+    obj2.hi()
